@@ -5,32 +5,35 @@ using UnityEngine.UI;
 
 public class AlienController : MonoBehaviour
 {
+    [SerializeField]
+    private DeathType[] _arrayMuertes;
+
+    [SerializeField]
+    private DeathType _deathType;
+
 
     private bool _alive = true;
     private Animator _animator;
 
     public bool Alive { get; }
 
-    [SerializeField]
-    private float LifeTime;
 
     private float _remainingTime;
 
     private Slider _slider;
 
 
-    public void SetLifeTime(float time)
-    {
-        LifeTime = time;
-    }
-
     // Start is called before the first frame update
     void Start()
     {
-        _remainingTime = LifeTime;
+        int val = Random.Range(0, _arrayMuertes.Length);
+        _deathType = _arrayMuertes[val];
+
+        _remainingTime =_deathType.death_timer;
 
         _animator = gameObject.GetComponent<Animator>();
         _slider = gameObject.GetComponentInChildren<Slider>();
+
 
         StartCoroutine(StartDeathTimer());
     }
@@ -38,15 +41,13 @@ public class AlienController : MonoBehaviour
     void Update() {
         _remainingTime -= Time.deltaTime;
       
-        _slider.value = _remainingTime/LifeTime*100;
+        _slider.value = _remainingTime/_deathType.death_timer*100;
 
     }
 
-
-
     IEnumerator StartDeathTimer()
     {
-        yield return new WaitForSeconds(LifeTime);
+        yield return new WaitForSeconds(_deathType.death_timer);
         _alive = false;
 
         _animator.SetBool("Alive", _alive);
