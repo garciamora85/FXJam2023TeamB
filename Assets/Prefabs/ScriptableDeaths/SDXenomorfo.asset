@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: SDXenomorfo
   m_EditorClassIdentifier: 
   death_identifyer: 4
-  death_timer: 0
+  death_timer: 15
   death_name: Alien Object In Stomac
+  death_animation: {fileID: 0}
