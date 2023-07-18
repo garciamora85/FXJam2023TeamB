@@ -3,40 +3,73 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class SelectText : MonoBehaviour
 {
-    [SerializeField]
     private int NumeroFrase;
 
-    [SerializeField]
-    private GameObject img;
+    public DeathType deathType;
 
+    private String frase;
 
     private TextMeshProUGUI texto;
+
+    private static float TiempoEntreLetras = 0.07f;
+
+    private float tiempoEspera = 8f;
+    private float tiempoTranscurrido = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        texto = gameObject.GetComponent<TextMeshProUGUI>();
-
-        texto.text = Frases.GetFrase(NumeroFrase);
+        CambiarFrase();
     }
 
-    public void OnGUI()
+    public void FixedUpdate()
     {
-        if (GUI.Button(new Rect(10, 10, 150, 100), "cambiar frase"))
-        {
-            texto = gameObject.GetComponent<TextMeshProUGUI>();
-            
-            texto.text = Frases.GetFrase(1);
+        tiempoTranscurrido += Time.fixedDeltaTime;
+    }
 
+
+    public void CambiarFrase()
+    {
+        int val = UnityEngine.Random.Range(0, 3);
+        int n = (deathType.death_identifyer * 3) + val;
+
+
+        texto = gameObject.GetComponent<TextMeshProUGUI>();
+
+        frase = Frases.GetFrase(n);
+
+        StartCoroutine(escribir());
+    }
+
+    IEnumerator escribir()
+    {
+        texto.text = "";
+        for (int i = 0; i < frase.Length; i++)
+        {
+            texto.text += frase[i];
 
             //Necesario para que se actualice el tamaño del cuadro de texto
             Canvas.ForceUpdateCanvases();
             transform.parent.GetComponent<HorizontalLayoutGroup>().enabled = false;
             transform.parent.GetComponent<HorizontalLayoutGroup>().enabled = true;
+
+            yield return new WaitForSeconds(TiempoEntreLetras);
+        }
+
+
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player" && tiempoTranscurrido > tiempoEspera) {
+            tiempoTranscurrido = 0f;
+            CambiarFrase();
         }
     }
+
 
 }

@@ -16,7 +16,7 @@ public static class Frases
         "¡Mi pecho!, ¡Dolor!",
         "Hay una viga en mi...",
         "No es por echarle mas hierro al asunto pero, ayuda...",
-        "No puedo moverme, llamena  una ambulancia o algo.",
+        "No puedo moverme, llamen a una ambulancia o algo.",
         "Que mareo, me han subido la factura de la luz.",
         "Hola buenas, ¿me puedes dar un paracetamol?",
         "Yo estoy sano, pero una revision siempre viene bien.",
