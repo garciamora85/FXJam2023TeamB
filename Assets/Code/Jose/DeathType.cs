@@ -6,7 +6,7 @@ using UnityEngine;
 public class DeathType : ScriptableObject
 {
     public int death_identifyer;
-    public int death_timer;
+    public float death_timer;
     public string death_name;
-    public Animation death_animation;
+    //public Animation death_animation;
 }

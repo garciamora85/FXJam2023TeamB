@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9396ad117b294564e90e885c0f097a12, type: 3}
-  m_Name: SDFactura
+  m_Name: SDEmpalado
   m_EditorClassIdentifier: 
   death_identifyer: 3
-  death_timer: 0
-  death_name: Being Broke
+  death_timer: 60
+  death_name: Great Contusion
