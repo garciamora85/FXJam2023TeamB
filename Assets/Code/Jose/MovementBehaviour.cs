@@ -14,7 +14,7 @@ public class MovementBehaviour : MonoBehaviour
     private CharacterController character_controller;
     private Vector3 input;
     private Vector3 rotation;
-    private float gravity = -9.82f;
+    //private float gravity = -9.82f;
     // Start is called before the first frame update
     private void Start()
     {
