@@ -23,6 +23,7 @@ public class PickAndDrop : MonoBehaviour
             full = true;
             other.GetComponent<SphereCollider>().enabled = false;
             picked = other.gameObject;
+            picked.GetComponentInChildren<BoxCollider>().enabled = false;
         }
         if (full && other.tag == "Goal")
         {

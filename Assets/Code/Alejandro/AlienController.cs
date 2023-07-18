@@ -23,11 +23,22 @@ public class AlienController : MonoBehaviour
     private Slider _slider;
 
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private SelectText _selectText;
+
+
+    private void Awake()
     {
         int val = Random.Range(0, _arrayMuertes.Length);
         _deathType = _arrayMuertes[val];
+        _selectText = gameObject.GetComponentInChildren<SelectText>();
+        _selectText.deathType = _deathType;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
 
         _remainingTime =_deathType.death_timer;
 
@@ -36,6 +47,9 @@ public class AlienController : MonoBehaviour
 
 
         StartCoroutine(StartDeathTimer());
+
+
+
     }
 
     void Update() {
