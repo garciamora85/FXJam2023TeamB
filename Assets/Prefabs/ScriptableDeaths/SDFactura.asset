@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: SDFactura
   m_EditorClassIdentifier: 
   death_identifyer: 3
-  death_timer: 0
+  death_timer: 60
   death_name: Being Broke
+  death_animation: {fileID: 0}
