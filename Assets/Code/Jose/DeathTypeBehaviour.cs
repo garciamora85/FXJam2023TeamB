@@ -9,10 +9,10 @@ public class DeathTypeBehaviour : MonoBehaviour
 
     void Awake()
     {
-        DeathType[] array = Resources.FindObjectsOfTypeAll<DeathType>();
+      /* DeathType[] array = Resources.FindObjectsOfTypeAll<DeathType>();
         int val = Random.Range(0, array.Length);
 
-        dying_type = array[val];
+        dying_type = array[val];*/
     }
 
     void Start()
