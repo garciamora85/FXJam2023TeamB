@@ -8,5 +8,6 @@ public class DeathType : ScriptableObject
     public int death_identifyer;
     public float death_timer;
     public string death_name;
+    public Material death_material;
     //public Animation death_animation;
 }

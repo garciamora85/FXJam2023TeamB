@@ -25,8 +25,11 @@ public class Spawner : MonoBehaviour
             GameObject gameObject = Spawns[n];
             Spawns.RemoveAt(n);
 
-            Instantiate(_prefabAlien, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+            GameObject aux = Instantiate(_prefabAlien, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
 
+            AlienController ac = aux.GetComponent<AlienController>();
+            MeshRenderer mr = aux.GetComponent<MeshRenderer>();
+            mr.material = ac._deathType.death_material;
         }
     }
 

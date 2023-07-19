@@ -15,3 +15,4 @@ MonoBehaviour:
   death_identifyer: 3
   death_timer: 90
   death_name: Being Broke
+  death_material: {fileID: 2100000, guid: 93c84c2e442e4a840b26644eb9ad3107, type: 2}
