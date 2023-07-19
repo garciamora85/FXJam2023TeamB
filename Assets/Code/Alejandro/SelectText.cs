@@ -20,9 +20,13 @@ public class SelectText : MonoBehaviour
     private float tiempoEspera = 8f;
     private float tiempoTranscurrido = 0f;
 
+    private AlienController _alienController;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        _alienController = GetComponentInParent<AlienController>();
         CambiarFrase();
     }
 
@@ -41,6 +45,8 @@ public class SelectText : MonoBehaviour
         texto = gameObject.GetComponent<TextMeshProUGUI>();
 
         frase = Frases.GetFrase(n);
+        //Play hurt sound from alien
+        _alienController.PlayHurt();
 
         StartCoroutine(escribir());
     }
@@ -71,5 +77,9 @@ public class SelectText : MonoBehaviour
         }
     }
 
+    public void Deactivate() { 
+    
+    
+    }
 
 }

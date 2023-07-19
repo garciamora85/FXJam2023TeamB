@@ -30,12 +30,18 @@ public class AlienController : MonoBehaviour
     [SerializeField]
     private Image _selectImage;
 
+    public AudioSource _alienSource;
+
+    public AudioClip _hurtClip;
+    public AudioClip _dieClip;
+    public AudioClip _safeClip;
 
     private void Awake()
     {
         int val = Random.Range(0, _arrayMuertes.Length);
         _deathType = _arrayMuertes[val];
         _selectText = gameObject.GetComponentInChildren<SelectText>();
+        _alienSource = gameObject.GetComponent<AudioSource>();
         _selectText.deathType = _deathType;
     }
 
@@ -65,13 +71,41 @@ public class AlienController : MonoBehaviour
         _selectImage.transform.SetPositionAndRotation(this.transform.position + _text_offset, Quaternion.LookRotation(Vector3.down));
     }
 
+    public void PlayHurt() {
+        //Play hurt sound from alien
+        _alienSource.PlayOneShot(_hurtClip);
+    }
+
+    public void PlayDead()
+    {
+        //Play hurt sound from alien
+        _alienSource.PlayOneShot(_dieClip);
+    }
+
+    public void PlaySafe()
+    {
+        //Play hurt sound from alien
+        _alienSource.PlayOneShot(_safeClip);
+    }
+
+    public void DisableText() {
+        _selectText.enabled = false;
+        _selectImage.enabled = false;
+        Canvas[] components = this.GetComponentsInChildren<Canvas>();
+        foreach(Canvas comp in components) {
+            //comp.gameObject.SetActive(false);
+            comp.enabled = false;
+        }
+    }
+
     IEnumerator StartDeathTimer()
     {
         yield return new WaitForSeconds(_deathType.death_timer);
         _alive = false;
-
         _animator.SetBool("Alive", _alive);
-        Destroy(this);
-        Debug.Log("Alien ha muerto");
+        PlayDead();
+        DisableText();
+        //Destroy(this);
+        //Debug.Log("Alien ha muerto");
     }
 }
