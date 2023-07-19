@@ -57,7 +57,7 @@ public class VisionConeBehaviour : MonoBehaviour
 		{
 			Transform target = targetsInViewRadius[i].transform;
 			Vector3 dirToTarget = (target.position - transform.position).normalized;
-			if (Vector3.Angle(transform.forward*-1, dirToTarget) < (viewAngle) / 2)
+			if (Vector3.Angle(transform.forward, dirToTarget) < (viewAngle) / 2)
 			{
 				float dstToTarget = Vector3.Distance(transform.position, target.position);
 				if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
@@ -76,7 +76,7 @@ public class VisionConeBehaviour : MonoBehaviour
 		ViewCastInfo oldViewCast = new ViewCastInfo();
 		for (int i = 0; i <= stepCount; i++)
 		{
-			float angle = transform.eulerAngles.y - (viewAngle + 360) / 2 + stepAngleSize * i;
+			float angle = transform.eulerAngles.y - (viewAngle) / 2 + stepAngleSize * i;
 			ViewCastInfo newViewCast = ViewCast(angle);
 
 			if (i > 0)

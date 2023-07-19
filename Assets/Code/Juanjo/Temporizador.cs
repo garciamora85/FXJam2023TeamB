@@ -27,7 +27,7 @@ public class Temporizador : MonoBehaviour
             anim.SetBool("end", true);
             if (timeEnd >= timeMax)
             {
-                SceneManager.LoadScene("Creditos");
+                SceneManager.LoadScene("Final");
             }
             Debug.Log("Se acabo el tiempo");
         }

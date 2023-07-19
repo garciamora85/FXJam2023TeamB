@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5645428098766936391}
   - component: {fileID: 8626372963131783192}
   - component: {fileID: 7918741047520587997}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 2673454582751847561}
   - component: {fileID: 8016367384564366136}
   - component: {fileID: 2032644042965810655}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8872950673835275166}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8021060447600951509}
   - component: {fileID: 5178468545901130734}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 7693638742832581161}
   - component: {fileID: 6589717165201105906}
   - component: {fileID: 5927742297774105365}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 5456414355021946485}
   - component: {fileID: 1038356768692431735}
   - component: {fileID: 4202021405794470428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Alien2
   m_TagString: Alien
   m_Icon: {fileID: 0}
@@ -651,6 +651,14 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190335
       objectReference: {fileID: 0}
+    - target: {fileID: 2121149536594680745, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4888315468263157739, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4888315468263157739, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
       propertyPath: m_TagString
       value: Texto
@@ -758,6 +766,10 @@ PrefabInstance:
     - target: {fileID: 5259784937123795193, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
       propertyPath: m_Name
       value: CuadroDialogo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259784937123795193, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5473824425450092325, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
       propertyPath: m_AnchorMax.y

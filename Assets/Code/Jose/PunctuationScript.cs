@@ -47,7 +47,7 @@ public class PunctuationScript : MonoBehaviour
     public void GoToMenu()
     {
         gm.DestroyGameManager();
-        SceneManager.LoadScene("Intro");
+        SceneManager.LoadScene("Creditos");
 
 
     }
