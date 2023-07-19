@@ -36,6 +36,8 @@ public class AlienController : MonoBehaviour
     public AudioClip _dieClip;
     public AudioClip _safeClip;
 
+    private Coroutine _corroutine;
+
     private void Awake()
     {
         int val = Random.Range(0, _arrayMuertes.Length);
@@ -49,17 +51,13 @@ public class AlienController : MonoBehaviour
     void Start()
     {
         
-
         _remainingTime =_deathType.death_timer;
 
         _animator = gameObject.GetComponent<Animator>();
         _slider = gameObject.GetComponentInChildren<Slider>();
 
 
-        StartCoroutine(StartDeathTimer());
-
-
-
+        _corroutine = StartCoroutine(StartDeathTimer());
     }
 
     void Update() {
@@ -108,4 +106,11 @@ public class AlienController : MonoBehaviour
         //Destroy(this);
         //Debug.Log("Alien ha muerto");
     }
+
+    public void StopDeath()
+    {
+        StopCoroutine(_corroutine);
+
+    }
+
 }

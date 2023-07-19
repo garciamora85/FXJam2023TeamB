@@ -29,10 +29,12 @@ public class PickAndDrop : MonoBehaviour
             other.GetComponent<SphereCollider>().enabled = false;
             picked = other.gameObject;
             picked.GetComponentInChildren<BoxCollider>().enabled = false;
+            picked.GetComponent<AlienController>().StopDeath();
             
         }
         if (full && other.tag == "Goal")
         {
+
             picked.transform.parent = null;
             picked.transform.position = camillas[n].transform.position;
             n++;
@@ -40,6 +42,5 @@ public class PickAndDrop : MonoBehaviour
             if (PickAndDropAudioSource && drop) PickAndDropAudioSource.PlayOneShot(drop);
             else Debug.LogError("NO AUDIO SOURCE IN PLAYER FOR THE PICK AND DROP");
         }
-        
     }
 }
