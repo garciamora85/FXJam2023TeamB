@@ -44,7 +44,7 @@ public class MovementBehaviour : MonoBehaviour
     {
         
         Vector3 forward = this.transform.forward;
-        input = new Vector3(0, 0, Input.GetAxis("Vertical"));
+        input = new Vector3(0, 0, Input.GetAxis("Vertical")) * -1;
 
         if (input.z >= 0)
         {
