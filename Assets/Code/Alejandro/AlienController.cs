@@ -15,7 +15,7 @@ public class AlienController : MonoBehaviour
     private bool _alive = true;
     private Animator _animator;
 
-    public bool Alive { get; }
+    public bool Alive { get { return _alive; } }
 
 
     private float _remainingTime;
@@ -36,6 +36,8 @@ public class AlienController : MonoBehaviour
     public AudioClip _dieClip;
     public AudioClip _safeClip;
 
+    private Coroutine _corroutine;
+
     private void Awake()
     {
         int val = Random.Range(0, _arrayMuertes.Length);
@@ -48,18 +50,12 @@ public class AlienController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-
         _remainingTime =_deathType.death_timer;
 
         _animator = gameObject.GetComponent<Animator>();
         _slider = gameObject.GetComponentInChildren<Slider>();
 
-
-        StartCoroutine(StartDeathTimer());
-
-
-
+        _corroutine = StartCoroutine(StartDeathTimer());
     }
 
     void Update() {
@@ -105,7 +101,13 @@ public class AlienController : MonoBehaviour
         _animator.SetBool("Alive", _alive);
         PlayDead();
         DisableText();
-        //Destroy(this);
+        this.enabled = false;
         //Debug.Log("Alien ha muerto");
     }
+
+    public void StopDeath()
+    {
+        StopCoroutine(_corroutine);
+    }
+
 }
