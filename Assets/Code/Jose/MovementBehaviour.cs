@@ -11,6 +11,8 @@ public class MovementBehaviour : MonoBehaviour
     //Velocidad Patras
     public float BackwardsSpeed = 0.5f;
 
+    public float max_volume = 0.5f;
+
     public AudioSource steps;
     public AudioSource hit;
 
@@ -65,7 +67,7 @@ public class MovementBehaviour : MonoBehaviour
 
         if (input.magnitude > 0)
         {
-            steps.volume = 1;
+            steps.volume = max_volume;
         }else steps.volume = 0;
     }
 }
