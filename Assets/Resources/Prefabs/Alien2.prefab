@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 1038356768692431735}
   - component: {fileID: 4202021405794470428}
   m_Layer: 0
-  m_Name: Alien
+  m_Name: Alien2
   m_TagString: Alien
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -426,7 +426,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9165602768879051342}
-  m_Mesh: {fileID: 2909830730820072558, guid: d1adbbd1eff23c94a8fbd4f402046709, type: 3}
+  m_Mesh: {fileID: 3562246820513542432, guid: e4d9fbcf94e94c04f92de44c01e83d9e, type: 3}
 --- !u!23 &9165602768879051341
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -761,11 +761,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5473824425450092325, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5473824425450092325, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5473824425450092325, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
       propertyPath: m_SizeDelta.x
