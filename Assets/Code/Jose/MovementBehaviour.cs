@@ -13,6 +13,10 @@ public class MovementBehaviour : MonoBehaviour
 
     public float max_volume = 0.5f;
 
+    bool isMoving;
+
+    public Animator anim;
+
     public AudioSource steps;
     public AudioSource hit;
 
@@ -23,6 +27,7 @@ public class MovementBehaviour : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        isMoving = false;
         character_controller = gameObject.GetComponent<CharacterController>();
         
     }
@@ -46,7 +51,7 @@ public class MovementBehaviour : MonoBehaviour
     {
         
         Vector3 forward = this.transform.forward;
-        input = new Vector3(0, 0, Input.GetAxis("Vertical")) * -1;
+        input = new Vector3(0, 0, Input.GetAxis("Vertical")) * 1;
 
         if (input.z >= 0)
         {
@@ -67,7 +72,15 @@ public class MovementBehaviour : MonoBehaviour
 
         if (input.magnitude > 0)
         {
+            isMoving = true;
+            
             steps.volume = max_volume;
-        }else steps.volume = 0;
+        }
+        else
+        {
+            isMoving = false;
+            steps.volume = 0;
+        }
+        anim.SetBool("isMoving", isMoving);
     }
 }
