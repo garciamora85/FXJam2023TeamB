@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SaltarCinematica : MonoBehaviour
 {
+    public string texto;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class SaltarCinematica : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Principal");
+            SceneManager.LoadScene(texto);
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceneCinematic : MonoBehaviour
 {
+    public string texto;
     float time;
     public float timeMax;
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class ChangeSceneCinematic : MonoBehaviour
         time = time + Time.deltaTime;
         if (time >= timeMax)
         {
-            SceneManager.LoadScene("Principal");
+            SceneManager.LoadScene(texto);
         }
     }
 }
