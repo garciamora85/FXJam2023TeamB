@@ -30,7 +30,6 @@ public class PickAndDrop : MonoBehaviour
             picked = other.gameObject;
             picked.GetComponentInChildren<BoxCollider>().enabled = false;
             picked.GetComponent<AlienController>().StopDeath();
-            
         }
         else if (full && other.tag == "Goal")
         {
