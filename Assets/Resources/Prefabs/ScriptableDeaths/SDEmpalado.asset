@@ -15,3 +15,4 @@ MonoBehaviour:
   death_identifyer: 2
   death_timer: 60
   death_name: Great Contusion
+  death_material: {fileID: 2100000, guid: 9ffe0313af9bb624ca6f9781b00601e0, type: 2}

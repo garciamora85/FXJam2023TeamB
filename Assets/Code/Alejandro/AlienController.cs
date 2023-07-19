@@ -9,7 +9,7 @@ public class AlienController : MonoBehaviour
     private DeathType[] _arrayMuertes;
 
     [SerializeField]
-    private DeathType _deathType;
+    public DeathType _deathType;
 
 
     private bool _alive = true;

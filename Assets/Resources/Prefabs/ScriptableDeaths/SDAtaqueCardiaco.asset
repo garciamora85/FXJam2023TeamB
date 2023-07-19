@@ -15,3 +15,4 @@ MonoBehaviour:
   death_identifyer: 0
   death_timer: 15
   death_name: Cardiac Arrest
+  death_material: {fileID: 2100000, guid: ed5e8d33afb1e204b984255480461cd0, type: 2}
