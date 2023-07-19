@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texto: Intro
-  timeMax: 10
+  timeMax: 15
 --- !u!1 &235966648
 GameObject:
   m_ObjectHideFlags: 0
