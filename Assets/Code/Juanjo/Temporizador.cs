@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 
 public class Temporizador : MonoBehaviour
 {
-    public float time;
+    public float time, timeEnd, timeMax;
     public Text text;
+    public Animator anim;
 
     private void Update()
     {
@@ -20,7 +23,12 @@ public class Temporizador : MonoBehaviour
         else
         {
             time = 0;
-            
+            timeEnd = timeEnd + Time.deltaTime;
+            anim.SetBool("end", true);
+            if (timeEnd >= timeMax)
+            {
+                SceneManager.LoadScene("Creditos");
+            }
             Debug.Log("Se acabo el tiempo");
         }
         

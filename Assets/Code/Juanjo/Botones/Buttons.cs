@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
     public void Comenzar()
     {
         SceneManager.LoadScene("InitialCinematic");
