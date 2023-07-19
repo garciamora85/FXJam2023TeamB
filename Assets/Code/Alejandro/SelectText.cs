@@ -22,6 +22,21 @@ public class SelectText : MonoBehaviour
 
     private AlienController _alienController;
 
+    private Coroutine _corroutine;
+
+
+    public void OnEnable()
+    {
+        EventBus.Subscribe(EventBus.AlienEventType.PICKED, AnotherAlienPicked);
+        EventBus.Subscribe(EventBus.AlienEventType.DROPPED, CambiarFrase);
+    }
+
+    public void OnDisable()
+    {
+        EventBus.Unsubscribe(EventBus.AlienEventType.PICKED, AnotherAlienPicked);
+        EventBus.Unsubscribe(EventBus.AlienEventType.DROPPED, CambiarFrase);
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +50,10 @@ public class SelectText : MonoBehaviour
         tiempoTranscurrido += Time.fixedDeltaTime;
     }
 
-
-    public void CambiarFrase()
+    public void AnotherAlienPicked()
     {
-        int val = UnityEngine.Random.Range(0, 3);
-        int n = (deathType.death_identifyer * 3) + val;
-
+        int val = UnityEngine.Random.Range(0, 2);
+        int n = 15 + val;
 
         texto = gameObject.GetComponent<TextMeshProUGUI>();
 
@@ -49,6 +62,37 @@ public class SelectText : MonoBehaviour
         _alienController.PlayHurt();
 
         StartCoroutine(escribir());
+    }
+
+    public void Picked()
+    {
+        EventBus.Unsubscribe(EventBus.AlienEventType.PICKED, AnotherAlienPicked);
+        EventBus.Unsubscribe(EventBus.AlienEventType.DROPPED, CambiarFrase);
+        EventBus.Publish(EventBus.AlienEventType.PICKED);
+    }
+
+    public void Dropped()
+    {
+        EventBus.Publish(EventBus.AlienEventType.DROPPED);
+    }
+
+
+    public void CambiarFrase()
+    {
+        int val = UnityEngine.Random.Range(0, 2);
+        int n = (deathType.death_identifyer * 3) + val;
+
+        texto = gameObject.GetComponent<TextMeshProUGUI>();
+
+        frase = Frases.GetFrase(n);
+        //Play hurt sound from alien
+        _alienController.PlayHurt();
+
+
+        if(_corroutine!=null)
+            StopCoroutine(_corroutine);
+
+        _corroutine = StartCoroutine(escribir());
     }
 
     IEnumerator escribir()
@@ -65,8 +109,6 @@ public class SelectText : MonoBehaviour
 
             yield return new WaitForSeconds(TiempoEntreLetras);
         }
-
-
     }
 
     public void OnTriggerEnter(Collider other)
@@ -76,10 +118,4 @@ public class SelectText : MonoBehaviour
             CambiarFrase();
         }
     }
-
-    public void Deactivate() { 
-    
-    
-    }
-
 }
