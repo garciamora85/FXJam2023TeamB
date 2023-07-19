@@ -22,9 +22,13 @@ public class AlienController : MonoBehaviour
 
     private Slider _slider;
 
+    public Vector3 _text_offset;
 
     [SerializeField]
     private SelectText _selectText;
+
+    [SerializeField]
+    private Image _selectImage;
 
 
     private void Awake()
@@ -57,6 +61,8 @@ public class AlienController : MonoBehaviour
       
         _slider.value = _remainingTime/_deathType.death_timer*100;
 
+        _selectText.transform.SetPositionAndRotation(this.transform.position + _text_offset, Quaternion.LookRotation(Vector3.down));
+        _selectImage.transform.SetPositionAndRotation(this.transform.position + _text_offset, Quaternion.LookRotation(Vector3.down));
     }
 
     IEnumerator StartDeathTimer()

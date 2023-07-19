@@ -631,11 +631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5473824425450092325, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5473824425450092325, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5473824425450092325, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
       propertyPath: m_SizeDelta.x
