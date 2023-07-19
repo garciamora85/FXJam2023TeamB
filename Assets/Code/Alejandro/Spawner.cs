@@ -25,17 +25,9 @@ public class Spawner : MonoBehaviour
             GameObject gameObject = Spawns[n];
             Spawns.RemoveAt(n);
 
-            //Instantiate(prefabProyectil, transform.position, Quaternion.Euler(0, 0, transform.eulerAngles.z));
-            Instantiate(_prefabAlien, gameObject.transform);
+            Instantiate(_prefabAlien, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
 
         }
-
-
     }
-
-
-
-
-
 
 }
