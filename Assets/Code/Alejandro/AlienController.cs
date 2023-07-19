@@ -92,6 +92,7 @@ public class AlienController : MonoBehaviour
             //comp.gameObject.SetActive(false);
             comp.enabled = false;
         }
+        this.GetComponentInChildren<SelectText>().enabled = false;
     }
 
     IEnumerator StartDeathTimer()

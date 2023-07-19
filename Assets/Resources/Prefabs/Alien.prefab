@@ -503,7 +503,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _arrayMuertes:
   - {fileID: 11400000, guid: ee16b8c407e814f40975e6da57038539, type: 2}
-  - {fileID: 11400000, guid: 0edd989b49bfdf04b883fc81418ad2a3, type: 2}
   - {fileID: 11400000, guid: 580226591734768439701d6658737300, type: 2}
   - {fileID: 11400000, guid: 54470a4d6cb0e6841bb90ac8b92ae6af, type: 2}
   - {fileID: 11400000, guid: f8c7d195076ce8d42bf2992405433f95, type: 2}
@@ -778,7 +777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5473824425450092325, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5473824425450092325, guid: ccec004b8f6ae1840bb3b58779eb03cf, type: 3}
       propertyPath: m_AnchoredPosition.y

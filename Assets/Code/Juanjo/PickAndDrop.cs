@@ -30,15 +30,16 @@ public class PickAndDrop : MonoBehaviour
             picked = other.gameObject;
             picked.GetComponentInChildren<BoxCollider>().enabled = false;
             picked.GetComponent<AlienController>().StopDeath();
+            picked.GetComponentInChildren<SelectText>().Picked();
         }
         else if (full && other.tag == "Goal")
         {
-
             picked.transform.parent = null;
             picked.transform.position = camillas[n].transform.position;
             n++;
             full = false;
             picked.GetComponent<AlienController>().DisableText();
+            picked.GetComponentInChildren<SelectText>().Dropped();
             if (PickAndDropAudioSource && drop) PickAndDropAudioSource.PlayOneShot(drop);
             else Debug.LogError("NO AUDIO SOURCE IN PLAYER FOR THE PICK AND DROP");
         }

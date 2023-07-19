@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9396ad117b294564e90e885c0f097a12, type: 3}
   m_Name: SDXenomorfo
   m_EditorClassIdentifier: 
-  death_identifyer: 5
+  death_identifyer: 4
   death_timer: 30
   death_name: Alien Object In Stomac
