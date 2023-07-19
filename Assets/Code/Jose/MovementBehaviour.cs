@@ -11,6 +11,9 @@ public class MovementBehaviour : MonoBehaviour
     //Velocidad Patras
     public float BackwardsSpeed = 0.5f;
 
+    public AudioSource steps;
+    public AudioSource hit;
+
     private CharacterController character_controller;
     private Vector3 input;
     private Vector3 rotation;
@@ -19,6 +22,21 @@ public class MovementBehaviour : MonoBehaviour
     private void Start()
     {
         character_controller = gameObject.GetComponent<CharacterController>();
+        
+    }
+
+
+    void OnCollisionEnter(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            Debug.DrawRay(contact.point, contact.normal, Color.white);
+        }
+        if (collision.relativeVelocity.magnitude > 2)
+        {
+            hit.Play();
+            input *= 0;
+        }
     }
 
     // Update is called once per frame
@@ -44,5 +62,10 @@ public class MovementBehaviour : MonoBehaviour
         rotation.x = 0;
         rotation.z = 0;
         transform.rotation = Quaternion.Euler(rotation);
+
+        if (input.magnitude > 0)
+        {
+            steps.volume = 1;
+        }else steps.volume = 0;
     }
 }
