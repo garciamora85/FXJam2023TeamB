@@ -19,7 +19,7 @@ public class PickAndDrop : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (full == false && other.tag == "Alien")
+        if (full == false && other.tag == "Alien" && other.gameObject.GetComponent<AlienController>().Alive)
         {
             other.transform.SetParent(point);
             other.transform.position = point.transform.position;
@@ -32,13 +32,14 @@ public class PickAndDrop : MonoBehaviour
             picked.GetComponent<AlienController>().StopDeath();
             
         }
-        if (full && other.tag == "Goal")
+        else if (full && other.tag == "Goal")
         {
 
             picked.transform.parent = null;
             picked.transform.position = camillas[n].transform.position;
             n++;
             full = false;
+            picked.GetComponent<AlienController>().DisableText();
             if (PickAndDropAudioSource && drop) PickAndDropAudioSource.PlayOneShot(drop);
             else Debug.LogError("NO AUDIO SOURCE IN PLAYER FOR THE PICK AND DROP");
         }
